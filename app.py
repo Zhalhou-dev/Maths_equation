@@ -8,7 +8,7 @@ def math():
     equation=request.form['text']
     operation=request.form['operation']
     result='https://newton.now.sh/api/v2//'+operation+'/'+equation
-    data=request.get(result).json()
+    data=requests.get(result).json()
     answer=data['result']
     return render_template("index.html",result=answer,equation=equation)
 if __name__=="__main__":
